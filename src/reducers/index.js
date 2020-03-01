@@ -1,11 +1,15 @@
 const initialState = {
-	number: 0
+	number: 3
 }
 
 const incrementReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'INCREMENT': {
-			state.number +=1
+			state.number++
+			return {...state}
+		}
+		case 'DECREMENT': {
+			state.number--
 			return {...state}
 		}
 		default:

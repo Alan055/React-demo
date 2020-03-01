@@ -1,34 +1,13 @@
 import React from "react";
 
-import {connect} from "react-redux";
+// import {connect} from "react-redux";
 // import incrementReducer from "../reducers";
+import {createStore,combineReducers} from "redux";
 
-import {increment} from "./../actions/index";
+// import {increment} from "./../actions/index";
+import incrementReducer from "../reducers";
 
-const mapStateToProps = (state) => {
-	return {
-		count: state.count
-	}
-}
+const store  = createStore(incrementReducer)
 
-const mapDispatchToProps = {increment}
-
-class Count extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
-	render() {
-		return (
-				<div>
-					<button>计数器</button>
-				</div>
-		)
-	}
-}
-
-
-// const store  = createStore(incrementReducer)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Count)
+export default store
 
